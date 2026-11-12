@@ -1,9 +1,12 @@
-"""Predicted 1H signals for a SMILES, using the parent project's predictor."""
+"""Predicted 1H signals for a SMILES, using the nmrcheck predictor."""
+from nmrcheck.chem import parse_smiles
+from nmrcheck.predict import predict
+from rdkit import Chem
+
 from .assign import Group, Species
-from .parent import ensure_importable
 
 # Extra search width on top of the tolerance, by the radius of the atom
-# environment the prediction came from. The parent index reports hold-out
+# environment the prediction came from. The nmrcheck index reports hold-out
 # errors of 0.14 ppm (radius 4) to 0.63 ppm (radius 1) for 1H; radius -1
 # means the table had nothing and a fixed atom-type value was used.
 SLACK = {4: 0.12, 3: 0.20, 2: 0.30, 1: 0.45, 0: 0.60, -1: 0.90}
@@ -21,8 +24,6 @@ def _kind(atom):
 
 def _atom_map(mol):
     """SMILES with 1-based atom numbers, so labels like C8 can be looked up."""
-    from rdkit import Chem
-
     tagged = Chem.Mol(mol)
     for atom in tagged.GetAtoms():
         atom.SetAtomMapNum(atom.GetIdx() + 1)
@@ -32,13 +33,9 @@ def _atom_map(mol):
 def build_species(smiles, key, role, name="", index=None, tol=0.08):
     """Predict the 1H signals of one compound.
 
-    `index` is the parent's Index (or None, in which case every shift falls
+    `index` is nmrcheck's Index (or None, in which case every shift falls
     back to a fixed atom-type value and the windows are very wide).
     """
-    ensure_importable()
-    from nmrcheck.chem import parse_smiles
-    from nmrcheck.predict import predict
-
     mol = parse_smiles(smiles)
     if mol is None:
         raise ValueError(f"cannot parse SMILES: {smiles}")

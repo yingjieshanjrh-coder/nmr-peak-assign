@@ -1,6 +1,6 @@
 """Runs the example through the real predictor.
 
-Needs RDKit and the index the parent project builds in ../data; skipped
+Needs RDKit, the nmrcheck package and the index it builds; skipped
 otherwise.
 """
 import pytest
@@ -10,7 +10,7 @@ pytest.importorskip("rdkit")
 from conftest import EXAMPLE, by_ppm  # noqa: E402
 from peakassign.cli import main  # noqa: E402
 from peakassign.inputs import load_peaks, load_targets  # noqa: E402
-from peakassign.parent import open_index  # noqa: E402
+from peakassign.index import open_index  # noqa: E402
 from peakassign.pipeline import run  # noqa: E402
 from peakassign.predictor import build_species  # noqa: E402
 from peakassign.report import ALERT  # noqa: E402
@@ -20,7 +20,7 @@ from peakassign.report import ALERT  # noqa: E402
 def index():
     idx = open_index()
     if idx is None:
-        pytest.skip("parent index not built (run `nmrcheck build` first)")
+        pytest.skip("shift index not built (run `nmrcheck build` first)")
     yield idx
     idx.close()
 

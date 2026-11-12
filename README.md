@@ -28,22 +28,25 @@ report: examples/ethyl_benzoate/report.md
 
 ## 安装
 
-这个工具直接复用 [nmr-novelty-check](https://github.com/yingjieshanjrh-coder/nmr-novelty-check)
-的位移预测和它建好的索引，所以要放在那个项目的文件夹里面，并且先把它装好、
-索引建好：
+位移预测和索引来自 [nmr-novelty-check](https://github.com/yingjieshanjrh-coder/nmr-novelty-check)
+的 `nmrcheck` 包，所以要先把它装进同一个 Python 环境，并建好索引。两个项目
+各放各的文件夹，不需要嵌套：
 
 ```
 git clone https://github.com/yingjieshanjrh-coder/nmr-novelty-check
 cd nmr-novelty-check
 pip install -e .
 nmrcheck build              # 已经建过索引就跳过
+cd ..
 
 git clone https://github.com/yingjieshanjrh-coder/nmr-peak-assign
 cd nmr-peak-assign
 pip install -e .            # 额外只需要 pyyaml
 ```
 
-没有索引也能跑，但预测位移会退化成按原子类型给的固定值，报告开头会提醒。
+索引默认到已安装的 nmr-novelty-check 的 `data/` 目录里找；放在别处的话，设环境
+变量 `NMRCHECK_DATA` 或用 `--data-dir` 指定。没有索引也能跑，但预测位移会退化成
+按原子类型给的固定值，报告开头会提醒。
 
 ## 输入
 
@@ -154,9 +157,9 @@ python -m peakassign targets.yaml measured_peaks.csv [-o report.md] [--json repo
 | `--unknown-threshold` | 0.5 | 触发未知预警的积分（H） |
 | `--residual-alert` | 0.20 | 原料/产物摩尔比超过它就提示残留较多 |
 | `--strict-overlap` | 关 | 见上 |
-| `--data-dir` | `../data` | 父项目索引所在目录 |
+| `--data-dir` | 自动查找 | `index.sqlite` 所在目录，见“安装” |
 
-搜索窗口为什么不是固定的 ±0.08：父项目的预测器是按原子环境查表的，环境越大
+搜索窗口为什么不是固定的 ±0.08：nmrcheck 的预测器是按原子环境查表的，环境越大
 越准。它在留出集上的 ¹H 平均误差是 0.14 ppm（半径 4 根键）到 0.63 ppm
 （半径 1）。所以窗口按半径放宽：半径 4 是 ±0.20，半径 3 是 ±0.28，以此类推。
 窗口放宽以后，靠上面说的积分校验来防止乱归属。报告末尾的表里列了每个预测信号
@@ -183,15 +186,15 @@ pytest
 ```
 
 `tests/test_assign.py` 等用手写的预测值测试分配逻辑，不依赖 RDKit；
-`tests/test_end_to_end.py` 用父项目的真实预测器和索引把苯甲酸乙酯的例子完整跑
+`tests/test_end_to_end.py` 用 nmrcheck 的真实预测器和索引把苯甲酸乙酯的例子完整跑
 一遍，没有索引时自动跳过。
 
 例子里的峰表是合成的：苯甲酸乙酯的五组峰，0.3 当量的残留乙醇，CHCl₃ 残留峰，
 水峰，再加一个与体系无关的 3.50 ppm / 2.0H 的峰。期望结果是前面那段输出。
 
-## 和父项目的关系
+## 和 nmr-novelty-check 的关系
 
-复用（只读，不改动父文件夹里的任何东西）：
+直接 `import nmrcheck` 复用下面几样，对那个项目只读不写：
 
 - `nmrcheck.predict.predict`：¹H 位移和每组氢数的预测；
 - `nmrcheck.index.Index`：以只读方式打开 `data/index.sqlite` 查原子环境；

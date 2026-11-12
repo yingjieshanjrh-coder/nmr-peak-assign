@@ -1,13 +1,9 @@
 """Residual solvent, water and common laboratory solvent signals (1H, ppm).
 
-Residual solvent shifts and solvent aliases come from the parent project
-(nmrcheck.solvents). Water and the trace-solvent table are transcribed from
+Residual solvent shifts and solvent aliases come from nmrcheck.solvents. Water and the trace-solvent table are transcribed from
 Fulmer et al., Organometallics 2010, 29, 2176 (Table 1).
 """
-from .parent import ensure_importable
-
-ensure_importable()
-from nmrcheck import solvents as _parent  # noqa: E402
+from nmrcheck import solvents as _base
 
 WATER = {
     "CDCl3": 1.56, "DMSO-d6": 3.33, "CD3OD": 4.87, "D2O": 4.79,
@@ -100,17 +96,17 @@ TRACE_WINDOW = 0.04
 
 def resolve_solvent(name):
     """Canonical name of a deuterated solvent, or None if it is not known."""
-    return _parent.resolve(name)
+    return _base.resolve(name)
 
 
 def known_solvents():
-    return sorted(_parent.RESIDUAL)
+    return sorted(_base.RESIDUAL)
 
 
 def solvent_lines(solvent):
     """Signals that are always looked for: residual solvent and water."""
     lines = []
-    for ppm in _parent.RESIDUAL[solvent]["1H"]:
+    for ppm in _base.RESIDUAL[solvent]["1H"]:
         lines.append({"name": f"{RESIDUAL_NAME[solvent]}（{solvent} 残留峰）",
                       "kind": "residual", "ppm": ppm,
                       "window": RESIDUAL_WINDOW})

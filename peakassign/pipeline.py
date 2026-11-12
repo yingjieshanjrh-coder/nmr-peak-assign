@@ -1,7 +1,6 @@
 """From the two input files to a classified peak list."""
 from . import impurities
 from .assign import Group, Settings, Species, analyse
-from .predictor import build_species
 
 
 def trace_species(name, solvent):
@@ -20,11 +19,14 @@ def trace_species(name, solvent):
                    groups=groups), []
 
 
-def run(targets, peaks, index=None, cfg=None, tol=0.08, predict=build_species):
+def run(targets, peaks, index=None, cfg=None, tol=0.08, predict=None):
     """Classify `peaks` for the species in `targets`.
 
-    `predict` can be replaced in tests to avoid needing RDKit and the index.
+    `predict` defaults to the nmrcheck-based predictor; tests pass their own
+    so the assignment logic can be checked without RDKit or the index.
     """
+    if predict is None:
+        from .predictor import build_species as predict
     cfg = cfg or Settings()
     product = predict(targets.product.smiles, "product", "product",
                       targets.product.name, index, tol)
@@ -48,8 +50,9 @@ def run(targets, peaks, index=None, cfg=None, tol=0.08, predict=build_species):
                      solvent=targets.solvent)
     if index is None:
         result.warnings.append(
-            "没有找到父项目的索引（data/index.sqlite），预测位移退化为按原子类型给的"
-            "固定值，窗口很宽，归属仅供参考。请先在父文件夹运行 nmrcheck build。")
+            "没有找到 nmrcheck 的索引（index.sqlite），预测位移退化为按原子类型给的"
+            "固定值，窗口很宽，归属仅供参考。请先在 nmr-novelty-check 里运行 "
+            "nmrcheck build，或用 --data-dir 指明索引所在目录。")
     weak = [g for s in [product] + reactants for g in s.groups
             if g.radius < 2 and not g.labile]
     if weak and index is not None:

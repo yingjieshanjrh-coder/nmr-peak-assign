@@ -6,7 +6,6 @@ from pathlib import Path
 from . import __version__
 from .assign import Settings
 from .inputs import InputError, load_peaks, load_targets
-from .parent import open_index
 from .pipeline import run
 from .report import to_json, to_markdown, to_text
 
@@ -21,8 +20,9 @@ def parser():
     p.add_argument("-o", "--output", help="Markdown report (default: "
                    "report.md next to the peak list)")
     p.add_argument("--json", help="also write the result as JSON")
-    p.add_argument("--data-dir", help="folder holding the parent project's "
-                   "index.sqlite (default: ../data)")
+    p.add_argument("--data-dir", help="folder holding the index.sqlite "
+                   "built by nmrcheck (default: $NMRCHECK_DATA, or the data "
+                   "folder of the installed nmr-novelty-check)")
     p.add_argument("--tol", type=float, default=0.08,
                    help="ppm tolerance for a confident match (default 0.08); "
                         "the search window adds the predictor's uncertainty")
@@ -48,6 +48,13 @@ def main(argv=None):
                    residual_alert=args.residual_alert,
                    strict_overlap=args.strict_overlap)
     try:
+        from .index import open_index
+    except ImportError as exc:
+        print(f"error: {exc}\nRDKit and the nmrcheck package are needed; "
+              "run `pip install -e .` in a clone of nmr-novelty-check first.",
+              file=sys.stderr)
+        return 2
+    try:
         targets = load_targets(args.targets)
         peaks = load_peaks(args.peaks)
         index = open_index(args.data_dir)
@@ -56,11 +63,6 @@ def main(argv=None):
         finally:
             if index is not None:
                 index.close()
-    except ImportError as exc:
-        print(f"error: {exc}\nRDKit and the parent nmrcheck package are "
-              "needed; run `pip install -e .` in the parent folder first.",
-              file=sys.stderr)
-        return 2
     except (InputError, ValueError, OSError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
