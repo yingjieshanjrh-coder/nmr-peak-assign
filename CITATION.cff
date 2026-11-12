@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "nmr-peak-assign: hypothesis-driven assignment of crude 1H NMR spectra using chemical-shift and integral cross-validation"
+type: software
+authors:
+  - family-names: Shan
+    given-names: Yingjie
+    affiliation: "University of St Andrews"
+    orcid: "https://orcid.org/0009-0007-6218-1248"
+version: 0.1.0
+date-released: "2026-11-12"
+license: MIT
+repository-code: "https://github.com/yingjieshanjrh-coder/nmr-peak-assign"
+abstract: "peakassign sorts the peaks of a crude 1H NMR spectrum into product, unreacted starting material, solvent and unexplained signals. Candidate structures are supplied by the user; a peak is assigned only if both its chemical shift and its integral agree with a predicted signal, and significant signals that no candidate explains are reported."
+keywords:
+  - NMR
+  - peak assignment
+  - cheminformatics
+  - reaction monitoring
