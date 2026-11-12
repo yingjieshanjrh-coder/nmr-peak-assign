@@ -28,7 +28,7 @@ def test_clean_product_is_fully_assigned():
     assert result.unit == pytest.approx(1.0)
     assert not result.product.missing
     assert not result.unknown_alert
-    assert all(p.parts[0].confidence == "高" for p in result.peaks)
+    assert all(p.parts[0].confidence == "High" for p in result.peaks)
 
 
 def test_scale_of_raw_integrals_does_not_matter():
@@ -178,7 +178,7 @@ def test_extra_area_under_a_product_peak_is_reported():
     peak = by_ppm(result)[4.38]
     assert peak.category == "product"
     assert peak.parts[0].status == "excess"
-    assert peak.parts[0].confidence == "中"
+    assert peak.parts[0].confidence == "Medium"
     assert result.hidden == [peak]
     assert peak.left_h == pytest.approx(1.2, abs=0.05)
     assert result.unknown_alert
@@ -207,7 +207,7 @@ def test_exchangeable_proton_is_matched_loosely():
     peak = by_ppm(result)[1.95]
     assert peak.category == "product"
     assert peak.parts[0].status == "labile"
-    assert peak.parts[0].confidence == "中"
+    assert peak.parts[0].confidence == "Medium"
 
 
 def test_reference_peak_fixes_the_scale():

@@ -1,76 +1,76 @@
-# NMR 粗产物谱峰归属报告
+# Crude 1H NMR peak assignment report
 
-> ⚠️ **发现疑似未知副产物信号，建议重点排查：3.50 ppm（1.98H）**
+> **WARNING: Unidentified significant peaks detected. Possible unknown byproducts.** Check 3.50 ppm (1.98H).
 
-| 项目 | 内容 |
+| Item | Value |
 | --- | --- |
-| 预期产物 | 苯甲酸乙酯（`CCOC(=O)c1ccccc1`） |
-| 反应物 | 苯甲酸（`OC(=O)c1ccccc1`）、乙醇（`CCO`） |
-| 氘代溶剂 | CDCl3 |
-| 积分归一化 | 1H = 原始积分 1.010（由产物信号整体拟合得到） |
-| 实测峰 | 10 个：产物 5，原料 2，溶剂/杂质 2，未知 1，冲突/重叠 0，未归属小峰 0 |
+| Expected product | ethyl benzoate (`CCOC(=O)c1ccccc1`) |
+| Reactants | benzoic acid (`OC(=O)c1ccccc1`), ethanol (`CCO`) |
+| Deuterated solvent | CDCl3 |
+| Integral normalisation | 1H = 1.010 raw integral units (fitted to the product signals) |
+| Measured peaks | 10: product 5, reactant 2, solvent/impurity 2, unknown 1, ambiguous 0, minor unassigned 0 |
 
-## 1. 产物特征峰（Product Assigned）
+## 1. Product Assigned
 
-| 实测 ppm | 峰形 | 积分 (H) | 归属建议 | 预测 ppm | 预测 H | 偏差 | 置信度 | 备注 |
+| Observed (ppm) | Mult. | Integral (H) | Assignment | Predicted (ppm) | Predicted H | Deviation | Confidence | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 8.05 | d | 2.01 | ArH（C7,11） | 8.03 | 2 | 0.02 | 高 | 也在 苯甲酸 ArH（C5,9）（7.86） 的预测窗口内，但积分没有多出来的面积 |
-| 7.55 | t | 0.97 | ArH（C9） | 7.56 | 1 | 0.01 | 高 | 也在 苯甲酸 ArH（C7）（7.56）、苯甲酸 ArH（C6,8）（7.47） 的预测窗口内，但积分没有多出来的面积 |
-| 7.44 | t | 2.03 | ArH（C8,10） | 7.46 | 2 | 0.02 | 高 | 也在 苯甲酸 ArH（C7）（7.56）、苯甲酸 ArH（C6,8）（7.47） 的预测窗口内，但积分没有多出来的面积 |
-| 4.38 | q | 1.98 | CH2（C2） | 4.38 | 2 | 0.00 | 高 | - |
-| 1.39 | t | 3.01 | CH3（C1） | 1.38 | 3 | 0.01 | 高 | - |
+| 8.05 | d | 2.01 | ArH (C7,11) | 8.03 | 2 | 0.02 | High | also inside the predicted window of benzoic acid ArH (C5,9) (predicted 7.86 ppm); the integral leaves no area unaccounted for |
+| 7.55 | t | 0.97 | ArH (C9) | 7.56 | 1 | 0.01 | High | also inside the predicted window of benzoic acid ArH (C7) (predicted 7.56 ppm), benzoic acid ArH (C6,8) (predicted 7.47 ppm); the integral leaves no area unaccounted for |
+| 7.44 | t | 2.03 | ArH (C8,10) | 7.46 | 2 | 0.02 | High | also inside the predicted window of benzoic acid ArH (C7) (predicted 7.56 ppm), benzoic acid ArH (C6,8) (predicted 7.47 ppm); the integral leaves no area unaccounted for |
+| 4.38 | q | 1.98 | CH2 (C2) | 4.38 | 2 | 0.00 | High | - |
+| 1.39 | t | 3.01 | CH3 (C1) | 1.38 | 3 | 0.01 | High | - |
 
-原子编号：`[CH3:1][CH2:2][O:3][C:4](=[O:5])[c:6]1[cH:7][cH:8][cH:9][cH:10][cH:11]1`
+Atom numbering: `[CH3:1][CH2:2][O:3][C:4](=[O:5])[c:6]1[cH:7][cH:8][cH:9][cH:10][cH:11]1`
 
-## 2. 未反应完的原料（Reactant Residual）
+## 2. Reactant Residual
 
-### 苯甲酸（`OC(=O)c1ccccc1`）
+### benzoic acid (`OC(=O)c1ccccc1`)
 
-未检出。它的信号（ArH（C5,9） 7.86 ppm、ArH（C7） 7.56 ppm、ArH（C6,8） 7.47 ppm）预测位置都被已归属的峰占着，单凭位移排除不了；不过这些峰的积分没有多出来的面积，即使有残留量也很少。
+Not detected. Its predicted signals (ArH (C5,9) at 7.86 ppm, ArH (C7) at 7.56 ppm, ArH (C6,8) at 7.47 ppm) all coincide with peaks that are already assigned, so it cannot be excluded on shift alone. Those peaks carry no excess integral, so any residual amount is small.
 
-### 乙醇（`CCO`）
+### ethanol (`CCO`)
 
-检出，约为产物的 **30 mol%**，占全谱积分的 11%。 **原料残留较多。**
+Detected at about **30 mol%** of the product (11% of the total integral). **Substantial unreacted starting material.**
 
-| 实测 ppm | 峰形 | 积分 (H) | 归属建议 | 预测 ppm | 预测 H | 偏差 | 置信度 | 备注 |
+| Observed (ppm) | Mult. | Integral (H) | Assignment | Predicted (ppm) | Predicted H | Deviation | Confidence | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 3.72 | q | 0.60 | CH2（C2） | 3.67 | 2 | 0.05 | 高 | - |
-| 1.24 | t | 0.92 | CH3（C1） | 1.19 | 3 | 0.05 | 高 | - |
+| 3.72 | q | 0.60 | CH2 (C2) | 3.67 | 2 | 0.05 | High | - |
+| 1.24 | t | 0.92 | CH3 (C1) | 1.19 | 3 | 0.05 | High | - |
 
-## 3. 溶剂与已知杂质（Solvent / Water）
+## 3. Solvent / Water
 
-| 实测 ppm | 峰形 | 积分 (H) | 归属 | 参考 ppm |
+| Observed (ppm) | Mult. | Integral (H) | Assignment | Reference (ppm) |
 | --- | --- | --- | --- | --- |
-| 7.26 | s | 0.21 | CHCl3（CDCl3 残留峰） | 7.26 |
-| 1.56 | s | 0.42 | H2O（CDCl3 中的水峰） | 1.56 |
+| 7.26 | s | 0.21 | CHCl3 (residual CDCl3) | 7.26 |
+| 1.56 | s | 0.42 | H2O (water in CDCl3) | 1.56 |
 
-## 4. ⚠️ 未知副产物预警（Unassigned / Unknowns）
+## 4. Unassigned / Unknowns
 
-> **发现疑似未知副产物信号，建议重点排查。** 下面的信号积分显著（≥ 0.5H），产物、原料、溶剂都解释不了。
+> **WARNING: Unidentified significant peaks detected. Possible unknown byproducts.** The signals below carry a significant integral (>= 0.5H) and are explained by neither the product, the reactants nor the solvent.
 
-| 实测 ppm | 峰形 | 积分 (H) | 原始积分 | 线索 |
+| Observed (ppm) | Mult. | Integral (H) | Raw integral | Hints |
 | --- | --- | --- | --- | --- |
-| **3.50** | s | **1.98** | 2 | 位移接近 CDCl3 中的 methanol（3.49, s）；如果实验里用过，在 targets.yaml 的 extra_solvents 里声明后重跑 |
+| **3.50** | s | **1.98** | 2 | shift is close to methanol (3.49, s) in CDCl3; if it was used, declare it under extra_solvents in targets.yaml and rerun |
 
-## 5. 冲突与重叠（Ambiguous）
+## 5. Ambiguous (conflicts and overlaps)
 
-没有。
+None.
 
-## 附：预测信号
+## Appendix: predicted signals
 
-| 物质 | 信号 | 预测 ppm | H | 搜索窗口 | 结果 |
+| Species | Signal | Predicted (ppm) | H | Search window (ppm) | Result |
 | --- | --- | --- | --- | --- | --- |
-| 苯甲酸乙酯 | ArH（C7,11） | 8.03 | 2 | ±0.20 | 已归属 |
-| 苯甲酸乙酯 | ArH（C9） | 7.56 | 1 | ±0.20 | 已归属 |
-| 苯甲酸乙酯 | ArH（C8,10） | 7.46 | 2 | ±0.20 | 已归属 |
-| 苯甲酸乙酯 | CH2（C2） | 4.38 | 2 | ±0.20 | 已归属 |
-| 苯甲酸乙酯 | CH3（C1） | 1.38 | 3 | ±0.20 | 已归属 |
-| 苯甲酸 | OH（O1） | 13.00 | 1 | ±1.00 | 活泼氢，未找到 |
-| 苯甲酸 | ArH（C5,9） | 7.86 | 2 | ±0.20 | 未归属 |
-| 苯甲酸 | ArH（C7） | 7.56 | 1 | ±0.20 | 未归属 |
-| 苯甲酸 | ArH（C6,8） | 7.47 | 2 | ±0.20 | 未归属 |
-| 乙醇 | CH2（C2） | 3.67 | 2 | ±0.20 | 已归属 |
-| 乙醇 | OH（O3） | 3.45 | 1 | ±1.00 | 活泼氢，未找到 |
-| 乙醇 | CH3（C1） | 1.19 | 3 | ±0.20 | 已归属 |
+| ethyl benzoate | ArH (C7,11) | 8.03 | 2 | +/-0.20 | assigned |
+| ethyl benzoate | ArH (C9) | 7.56 | 1 | +/-0.20 | assigned |
+| ethyl benzoate | ArH (C8,10) | 7.46 | 2 | +/-0.20 | assigned |
+| ethyl benzoate | CH2 (C2) | 4.38 | 2 | +/-0.20 | assigned |
+| ethyl benzoate | CH3 (C1) | 1.38 | 3 | +/-0.20 | assigned |
+| benzoic acid | OH (O1) | 13.00 | 1 | +/-1.00 | exchangeable, not found |
+| benzoic acid | ArH (C5,9) | 7.86 | 2 | +/-0.20 | unassigned |
+| benzoic acid | ArH (C7) | 7.56 | 1 | +/-0.20 | unassigned |
+| benzoic acid | ArH (C6,8) | 7.47 | 2 | +/-0.20 | unassigned |
+| ethanol | CH2 (C2) | 3.67 | 2 | +/-0.20 | assigned |
+| ethanol | OH (O3) | 3.45 | 1 | +/-1.00 | exchangeable, not found |
+| ethanol | CH3 (C1) | 1.19 | 3 | +/-0.20 | assigned |
 
-<sub>peakassign 0.1.0 · 预测位移是估算值，归属是建议，不能代替二维谱。</sub>
+<sub>peakassign 0.1.0. Predicted shifts are estimates and the assignments are suggestions; they do not replace 2D NMR.</sub>

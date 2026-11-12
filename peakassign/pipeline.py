@@ -50,13 +50,16 @@ def run(targets, peaks, index=None, cfg=None, tol=0.08, predict=None):
                      solvent=targets.solvent)
     if index is None:
         result.warnings.append(
-            "没有找到 nmrcheck 的索引（index.sqlite），预测位移退化为按原子类型给的"
-            "固定值，窗口很宽，归属仅供参考。请先在 nmr-novelty-check 里运行 "
-            "nmrcheck build，或用 --data-dir 指明索引所在目录。")
+            "The nmrcheck shift index (index.sqlite) was not found, so "
+            "predicted shifts fall back to fixed atom-type values with very "
+            "wide search windows; treat the assignments as indicative only. "
+            "Run `nmrcheck build` in nmr-novelty-check, or point --data-dir "
+            "at the folder that holds the index.")
     weak = [g for s in [product] + reactants for g in s.groups
             if g.radius < 2 and not g.labile]
     if weak and index is not None:
         result.warnings.append(
-            f"有 {len(weak)} 组信号的预测只基于很小的原子环境（半径 < 2 根键），"
-            "搜索窗口相应放宽了，这些归属要多留个心眼。")
+            f"{len(weak)} predicted signal(s) rest on a small atom "
+            "environment (radius < 2 bonds). Their search windows were "
+            "widened accordingly, so check those assignments with care.")
     return result

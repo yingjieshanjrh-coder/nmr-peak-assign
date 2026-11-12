@@ -1,10 +1,11 @@
-# Fischer 酯化：苯甲酸 + 乙醇 -> 苯甲酸乙酯，粗产物溶于 CDCl3
+# Fischer esterification: benzoic acid + ethanol -> ethyl benzoate.
+# Crude product dissolved in CDCl3.
 product:
   smiles: CCOC(=O)c1ccccc1
-  name: 苯甲酸乙酯
+  name: ethyl benzoate
 reactants:
   - smiles: OC(=O)c1ccccc1
-    name: 苯甲酸
+    name: benzoic acid
   - smiles: CCO
-    name: 乙醇
+    name: ethanol
 solvent: CDCl3

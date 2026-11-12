@@ -41,13 +41,13 @@ def test_example_warns_about_the_stray_peak(example):
 
 def test_markdown_report(example):
     text = to_markdown(example)
-    for heading in ("## 1. 产物特征峰", "## 2. 未反应完的原料",
-                    "## 3. 溶剂与已知杂质", "## 4. ⚠️ 未知副产物预警",
-                    "## 5. 冲突与重叠"):
+    for heading in ("## 1. Product Assigned", "## 2. Reactant Residual",
+                    "## 3. Solvent / Water", "## 4. Unassigned / Unknowns",
+                    "## 5. Ambiguous"):
         assert heading in text
     assert text.count(ALERT) == 2
     assert "**3.50**" in text
-    assert "原料残留较多" in text
+    assert "Substantial unreacted starting material" in text
     assert "methanol" in text          # hint only, the peak stays unknown
     assert "diethyl ether" not in text  # a singlet cannot be the ether quartet
     assert "30 mol%" in text
@@ -69,7 +69,7 @@ def test_report_without_unknowns(predict):
     result = run(targets, peaks, index=object(), predict=predict)
     text = to_markdown(result)
     assert ALERT not in text
-    assert "没有发现积分超过" in text
+    assert "No unexplained signal above" in text
 
 
 ETOAC = [Peak(4.12, 0.4, "q"), Peak(2.05, 0.6, "s"), Peak(1.26, 0.6, "t")]

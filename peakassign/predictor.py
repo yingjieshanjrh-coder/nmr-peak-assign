@@ -47,7 +47,7 @@ def build_species(smiles, key, role, name="", index=None, tol=0.08):
         numbers = ",".join(str(a + 1) for a in signal["atoms"])
         window = tol + SLACK.get(signal["radius"], SLACK[-1])
         groups.append(Group(
-            label=f"{_kind(atom)}（{atom.GetSymbol()}{numbers}）",
+            label=f"{_kind(atom)} ({atom.GetSymbol()}{numbers})",
             shift=signal["shift"], protons=signal["count"],
             window=round(window, 3), tight=round(max(tol, window / 2), 3),
             radius=signal["radius"], labile=atom.GetSymbol() in LABILE,

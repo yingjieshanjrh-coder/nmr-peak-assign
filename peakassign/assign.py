@@ -379,8 +379,10 @@ class _Run:
             self.unit = sum(s.integral for s in self.states) / protons
             source = "total"
             self.warnings.append(
-                "没有任何实测峰能与产物的预测信号对应，积分只能按总面积粗略归一化；"
-                "请检查产物结构、溶剂，或在 targets.yaml 中用 reference 指定一个参考峰。")
+                "No measured peak matches any predicted product signal, so "
+                "integrals were normalised roughly against the total area. "
+                "Check the product structure and the solvent, or set a "
+                "reference peak with `reference` in targets.yaml.")
         for state in self.states:
             state.h = state.integral / self.unit
         if fit:
@@ -420,7 +422,7 @@ class _Run:
         free = [s for s in cands if s.remaining > self.eps]
         if not free:
             for state in cands:
-                state.also.append(f"{line['name']}（{line['ppm']:.2f}）")
+                state.also.append(f"{line['name']} at {line['ppm']:.2f} ppm")
             return
         state = min(free, key=lambda s: abs(s.ppm - line["ppm"]))
         amount = state.remaining
@@ -476,17 +478,19 @@ class _Run:
                     "shift": group.shift,
                     "h": report.ratio * group.protons})
         elif report.status == "doubtful":
-            lost = "、".join(f"{g.label}（{g.shift:.2f}）"
-                            for g in report.missing)
+            lost = ", ".join(f"{g.label} at {g.shift:.2f} ppm"
+                             for g in report.missing)
             for idx, groups, _, _ in fit.matches:
                 self.states[idx].hints.append(
-                    f"位移落在 {species.name} 的 {groups[0].label} 预测窗口内，"
-                    f"但该物质的其余信号 {lost} 没有出现，未按其归属")
+                    f"inside the predicted window of {species.name} "
+                    f"{groups[0].label}, but its other signals ({lost}) are "
+                    "absent, so it was not assigned to that species")
         else:
             for group in report.masked:
                 for state in hosts[id(group)]:
                     state.also.append(
-                        f"{species.name} {group.label}（{group.shift:.2f}）")
+                        f"{species.name} {group.label} "
+                        f"(predicted {group.shift:.2f} ppm)")
         return report
 
     # -- exchangeable protons ---------------------------------------------
@@ -521,9 +525,10 @@ class _Run:
                     group = min(clash, key=lambda g: abs(state.ppm - g.shift))
                     state.category = "ambiguous"
                     state.conflict = (
-                        f"位移符合产物的 {group.label}（预测 {group.shift:.2f} "
-                        f"ppm，{group.protons}H），但积分只有 {state.h:.2f}H，"
-                        "对不上，未按产物归属")
+                        f"shift fits the product signal {group.label} "
+                        f"(predicted {group.shift:.2f} ppm, {group.protons}H) "
+                        f"but the integral is only {state.h:.2f}H; not "
+                        "assigned to the product")
                 elif state.left_h >= self.cfg.unknown_h:
                     state.category = "unknown"
                 else:
@@ -551,7 +556,7 @@ class _Run:
                         and part.delta <= part.tight)
                 if part.role != "product" and part.species not in verified:
                     sure = False
-                part.confidence = "高" if sure else "中"
+                part.confidence = "High" if sure else "Medium"
 
 
 def analyse(peaks, product, reactants, lines=(), impurities=(), cfg=None,

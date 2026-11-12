@@ -14,7 +14,7 @@ def write(tmp_path, name, text):
 def test_example_files_load():
     targets = load_targets(EXAMPLE / "targets.yaml")
     assert targets.product.smiles == "CCOC(=O)c1ccccc1"
-    assert targets.product.name == "苯甲酸乙酯"
+    assert targets.product.name == "ethyl benzoate"
     assert [r.smiles for r in targets.reactants] == ["OC(=O)c1ccccc1", "CCO"]
     assert targets.solvent == "CDCl3"
     peaks = load_peaks(EXAMPLE / "measured_peaks.csv")
@@ -25,7 +25,7 @@ def test_example_files_load():
 def test_plain_smiles_and_solvent_alias(tmp_path):
     path = write(tmp_path, "t.yaml",
                  "product: CCO\nreactants: [CC=O]\nsolvent: dmso\n"
-                 "extra_solvents: [EtOAc, 丙酮]\n"
+                 "extra_solvents: [EtOAc, Acetone]\n"
                  "reference: {ppm: 3.44, protons: 2}\n")
     targets = load_targets(path)
     assert targets.solvent == "DMSO-d6"
@@ -49,7 +49,7 @@ def test_bad_targets(tmp_path, text, word):
 
 def test_peak_list_details(tmp_path):
     path = write(tmp_path, "p.csv",
-                 "﻿Shift,Area\n1.20,3\n\n7.30, 5.5\n")
+                 "\ufeffShift,Area\n1.20,3\n\n7.30, 5.5\n")
     peaks = load_peaks(path)
     assert [(p.ppm, p.integral, p.multiplicity) for p in peaks] == \
         [(7.3, 5.5, ""), (1.2, 3.0, "")]
@@ -74,7 +74,7 @@ def test_solvent_lines():
 
 
 def test_trace_lookup():
-    assert impurities.resolve_trace("乙酸乙酯", "CDCl3") == "ethyl acetate"
+    assert impurities.resolve_trace("EtOAc", "CDCl3") == "ethyl acetate"
     assert impurities.resolve_trace("DCM", "DMSO-d6") == "dichloromethane"
     assert impurities.resolve_trace("acetone", "CD3OD") is None
     names = [hit[0] for hit in impurities.nearby_trace("CDCl3", 3.50)]

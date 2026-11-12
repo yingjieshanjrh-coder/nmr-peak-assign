@@ -67,26 +67,18 @@ TRACE = {
 }
 
 TRACE_ALIASES = {
-    "丙酮": "acetone", "乙腈": "acetonitrile", "mecn": "acetonitrile",
-    "乙酸": "acetic acid", "醋酸": "acetic acid", "acoh": "acetic acid",
-    "苯": "benzene", "环己烷": "cyclohexane",
-    "氯仿": "chloroform", "chcl3": "chloroform",
-    "dcm": "dichloromethane", "二氯甲烷": "dichloromethane",
+    "mecn": "acetonitrile", "acoh": "acetic acid",
+    "chcl3": "chloroform", "dcm": "dichloromethane",
     "ch2cl2": "dichloromethane",
-    "乙醚": "diethyl ether", "ether": "diethyl ether", "et2o": "diethyl ether",
-    "二甲亚砜": "DMSO", "dmso": "DMSO", "dmf": "DMF",
-    "二氧六环": "1,4-dioxane", "dioxane": "1,4-dioxane",
-    "乙醇": "ethanol", "etoh": "ethanol",
-    "乙酸乙酯": "ethyl acetate", "ea": "ethyl acetate",
-    "etoac": "ethyl acetate",
-    "正己烷": "n-hexane", "己烷": "n-hexane", "hexane": "n-hexane",
-    "hexanes": "n-hexane", "石油醚": "n-hexane", "pe": "n-hexane",
-    "甲醇": "methanol", "meoh": "methanol",
-    "异丙醇": "2-propanol", "isopropanol": "2-propanol", "ipa": "2-propanol",
-    "吡啶": "pyridine", "四氢呋喃": "THF", "thf": "THF",
-    "甲苯": "toluene", "三乙胺": "triethylamine", "et3n": "triethylamine",
-    "tea": "triethylamine", "油脂": "grease", "真空脂": "grease",
-    "硅脂": "silicone grease", "tms": "TMS",
+    "ether": "diethyl ether", "et2o": "diethyl ether",
+    "dmso": "DMSO", "dmf": "DMF", "dioxane": "1,4-dioxane",
+    "etoh": "ethanol", "ea": "ethyl acetate", "etoac": "ethyl acetate",
+    "hexane": "n-hexane", "hexanes": "n-hexane",
+    "petroleum ether": "n-hexane", "pe": "n-hexane",
+    "meoh": "methanol", "isopropanol": "2-propanol", "ipa": "2-propanol",
+    "iproh": "2-propanol", "thf": "THF",
+    "et3n": "triethylamine", "tea": "triethylamine",
+    "vacuum grease": "grease", "tms": "TMS",
 }
 
 RESIDUAL_WINDOW = 0.03
@@ -107,13 +99,13 @@ def solvent_lines(solvent):
     """Signals that are always looked for: residual solvent and water."""
     lines = []
     for ppm in _base.RESIDUAL[solvent]["1H"]:
-        lines.append({"name": f"{RESIDUAL_NAME[solvent]}（{solvent} 残留峰）",
+        lines.append({"name": f"{RESIDUAL_NAME[solvent]} (residual {solvent})",
                       "kind": "residual", "ppm": ppm,
                       "window": RESIDUAL_WINDOW})
     water = WATER.get(solvent)
     if water is not None and all(abs(water - line["ppm"]) > 0.01
                                  for line in lines):
-        lines.append({"name": f"H2O（{solvent} 中的水峰）", "kind": "water",
+        lines.append({"name": f"H2O (water in {solvent})", "kind": "water",
                       "ppm": water, "window": WATER_WINDOW})
     return lines
 
