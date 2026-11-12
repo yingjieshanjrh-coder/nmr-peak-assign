@@ -1,5 +1,7 @@
 # nmr-peak-assign
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24169336.svg)](https://doi.org/10.5281/zenodo.24169336)
+
 Hypothesis-driven assignment of crude ¹H NMR spectra using chemical-shift and
 integral cross-validation.
 
@@ -295,6 +297,18 @@ as read-only:
 
 Reading the inputs, the water and trace-solvent tables, the integral-aware
 assignment and the report are implemented here.
+
+## Citation
+
+If you use this software, please cite the archived release:
+
+> Shan, Y. *nmr-peak-assign: hypothesis-driven assignment of crude ¹H NMR
+> spectra using chemical-shift and integral cross-validation*. Zenodo.
+> https://doi.org/10.5281/zenodo.24169336
+
+That DOI always resolves to the latest version. Version 0.1.0 is archived
+as https://doi.org/10.5281/zenodo.24169337. Citation metadata is also
+available in [CITATION.cff](CITATION.cff).
 
 ## License
 
