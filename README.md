@@ -307,8 +307,9 @@ If you use this software, please cite the archived release:
 > https://doi.org/10.5281/zenodo.24169336
 
 That DOI always resolves to the latest version. Version 0.1.0 is archived
-as https://doi.org/10.5281/zenodo.24169337. Citation metadata is also
-available in [CITATION.cff](CITATION.cff).
+as https://doi.org/10.5281/zenodo.24169337 and version 0.1.1, which adds the
+experimental examples, as https://doi.org/10.5281/zenodo.24213102. Citation
+metadata is also available in [CITATION.cff](CITATION.cff).
 
 ## License
 

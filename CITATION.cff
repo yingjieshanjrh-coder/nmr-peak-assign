@@ -8,8 +8,8 @@ authors:
     affiliation: "University of St Andrews"
     orcid: "https://orcid.org/0009-0007-6218-1248"
 doi: 10.5281/zenodo.24169336
-version: 0.1.0
-date-released: "2026-11-12"
+version: 0.1.1
+date-released: "2026-11-14"
 license: MIT
 repository-code: "https://github.com/yingjieshanjrh-coder/nmr-peak-assign"
 abstract: "peakassign sorts the peaks of a crude 1H NMR spectrum into product, unreacted starting material, solvent and unexplained signals. Candidate structures are supplied by the user; a peak is assigned only if both its chemical shift and its integral agree with a predicted signal, and significant signals that no candidate explains are reported."
