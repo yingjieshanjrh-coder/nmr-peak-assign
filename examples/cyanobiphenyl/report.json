@@ -1,0 +1,375 @@
+{
+  "tool": "peakassign 0.1.0",
+  "solvent": "CDCl3",
+  "normalisation": {
+    "raw_integral_per_h": 8.853333333333333,
+    "source": "product"
+  },
+  "unknown_alert": false,
+  "unknown": [],
+  "product": {
+    "name": "4-cyanobiphenyl",
+    "smiles": "N#Cc1ccc(cc1)-c1ccccc1",
+    "status": "detected",
+    "molar_ratio": 1.0,
+    "integral_h": 8.948,
+    "integral_share": 0.7923,
+    "alert": false,
+    "matched": [
+      {
+        "label": "ArH (C4,8)",
+        "shift": 7.69,
+        "protons": 2,
+        "window": 0.2,
+        "labile": false
+      },
+      {
+        "label": "ArH (C5,7)",
+        "shift": 7.65,
+        "protons": 2,
+        "window": 0.2,
+        "labile": false
+      },
+      {
+        "label": "ArH (C10,14)",
+        "shift": 7.62,
+        "protons": 2,
+        "window": 0.2,
+        "labile": false
+      },
+      {
+        "label": "ArH (C11,13)",
+        "shift": 7.44,
+        "protons": 2,
+        "window": 0.2,
+        "labile": false
+      },
+      {
+        "label": "ArH (C12)",
+        "shift": 7.42,
+        "protons": 1,
+        "window": 0.2,
+        "labile": false
+      }
+    ],
+    "missing": [],
+    "masked": []
+  },
+  "reactants": [
+    {
+      "name": "phenylboronic acid",
+      "smiles": "OB(O)c1ccccc1",
+      "status": "detected",
+      "molar_ratio": 0.12085843373493976,
+      "integral_h": 0.363,
+      "integral_share": 0.0321,
+      "alert": false,
+      "matched": [
+        {
+          "label": "ArH (C6,8)",
+          "shift": 7.37,
+          "protons": 2,
+          "window": 0.38,
+          "labile": false
+        },
+        {
+          "label": "ArH (C7)",
+          "shift": 7.35,
+          "protons": 1,
+          "window": 0.28,
+          "labile": false
+        }
+      ],
+      "missing": [],
+      "masked": [
+        {
+          "label": "ArH (C5,9)",
+          "shift": 7.77,
+          "protons": 2,
+          "window": 0.38,
+          "labile": false
+        }
+      ]
+    },
+    {
+      "name": "4-bromobenzonitrile",
+      "smiles": "N#Cc1ccc(Br)cc1",
+      "status": "masked",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [],
+      "masked": [
+        {
+          "label": "ArH (C5,8)",
+          "shift": 7.62,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        },
+        {
+          "label": "ArH (C4,9)",
+          "shift": 7.54,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        }
+      ]
+    }
+  ],
+  "declared_impurities": [
+    {
+      "name": "acetone",
+      "smiles": "",
+      "status": "detected",
+      "molar_ratio": 0.33057228915662645,
+      "integral_h": 1.983,
+      "integral_share": 0.1756,
+      "alert": false,
+      "matched": [
+        {
+          "label": "s, 6H",
+          "shift": 2.17,
+          "protons": 6,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "missing": [],
+      "masked": []
+    },
+    {
+      "name": "ethanol",
+      "smiles": "",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "q, 2H",
+          "shift": 3.72,
+          "protons": 2,
+          "window": 0.04,
+          "labile": false
+        },
+        {
+          "label": "t, 3H",
+          "shift": 1.25,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "masked": []
+    },
+    {
+      "name": "ethyl acetate",
+      "smiles": "",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "q, 2H",
+          "shift": 4.12,
+          "protons": 2,
+          "window": 0.04,
+          "labile": false
+        },
+        {
+          "label": "s, 3H",
+          "shift": 2.05,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        },
+        {
+          "label": "t, 3H",
+          "shift": 1.26,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "masked": []
+    }
+  ],
+  "peaks": [
+    {
+      "ppm": 7.735,
+      "integral": 35.44,
+      "h": 4.003,
+      "multiplicity": "m",
+      "category": "ambiguous",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "4-cyanobiphenyl",
+          "role": "product",
+          "signals": [
+            "ArH (C5,7)",
+            "ArH (C4,8)"
+          ],
+          "predicted_ppm": [
+            7.65,
+            7.69
+          ],
+          "predicted_h": 4,
+          "integral_h": 4.003,
+          "status": "ok",
+          "delta": 0.085,
+          "confidence": "Medium"
+        }
+      ],
+      "overlaps": [
+        {
+          "name": "phenylboronic acid",
+          "label": "ArH (C5,9)",
+          "shift": 7.77,
+          "h": 0.24171686746987953
+        }
+      ],
+      "also_in_window": [
+        "4-bromobenzonitrile ArH (C5,8) (predicted 7.62 ppm)",
+        "4-bromobenzonitrile ArH (C4,9) (predicted 7.54 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.615,
+      "integral": 17.22,
+      "h": 1.945,
+      "multiplicity": "m",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "4-cyanobiphenyl",
+          "role": "product",
+          "signals": [
+            "ArH (C10,14)"
+          ],
+          "predicted_ppm": [
+            7.62
+          ],
+          "predicted_h": 2,
+          "integral_h": 1.945,
+          "status": "ok",
+          "delta": 0.005,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "4-bromobenzonitrile ArH (C5,8) (predicted 7.62 ppm)",
+        "4-bromobenzonitrile ArH (C4,9) (predicted 7.54 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.49,
+      "integral": 26.56,
+      "h": 3.0,
+      "multiplicity": "m",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "4-cyanobiphenyl",
+          "role": "product",
+          "signals": [
+            "ArH (C12)",
+            "ArH (C11,13)"
+          ],
+          "predicted_ppm": [
+            7.42,
+            7.44
+          ],
+          "predicted_h": 3,
+          "integral_h": 3.0,
+          "status": "ok",
+          "delta": 0.07,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "4-bromobenzonitrile ArH (C5,8) (predicted 7.62 ppm)",
+        "4-bromobenzonitrile ArH (C4,9) (predicted 7.54 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.29,
+      "integral": 3.21,
+      "h": 0.363,
+      "multiplicity": "s",
+      "category": "reactant",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "phenylboronic acid",
+          "role": "reactant",
+          "signals": [
+            "ArH (C7)",
+            "ArH (C6,8)"
+          ],
+          "predicted_ppm": [
+            7.35,
+            7.37
+          ],
+          "predicted_h": 3,
+          "integral_h": 0.363,
+          "status": "ok",
+          "delta": 0.08,
+          "confidence": "Medium"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 2.2,
+      "integral": 17.56,
+      "h": 1.983,
+      "multiplicity": "s",
+      "category": "solvent",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "acetone",
+          "role": "impurity",
+          "signals": [
+            "s, 6H"
+          ],
+          "predicted_ppm": [
+            2.17
+          ],
+          "predicted_h": 6,
+          "integral_h": 1.983,
+          "status": "ok",
+          "delta": 0.03,
+          "confidence": "Medium"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    }
+  ],
+  "warnings": []
+}

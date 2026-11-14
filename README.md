@@ -163,7 +163,7 @@ cd ..
 
 git clone https://github.com/yingjieshanjrh-coder/nmr-peak-assign
 cd nmr-peak-assign
-pip install -e .            # adds only pyyaml
+pip install -e .            # adds pyyaml; uses the nmrcheck installed above
 ```
 
 The index is looked for in the `data/` folder of the installed

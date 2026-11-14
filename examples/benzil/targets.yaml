@@ -1,0 +1,14 @@
+# Oxidation of benzoin to benzil (Cu(OAc)2 / NH4NO3 in aqueous acetic acid).
+# Experimental spectrum (400.3 MHz, CDCl3) of the product after filtration
+# and recrystallisation from ethanol.
+product:
+  smiles: O=C(C(=O)c1ccccc1)c1ccccc1
+  name: benzil
+reactants:
+  - smiles: OC(C(=O)c1ccccc1)c1ccccc1
+    name: benzoin
+solvent: CDCl3
+extra_solvents:
+  - acetone
+  - ethanol
+  - acetic acid

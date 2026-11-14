@@ -1,0 +1,294 @@
+{
+  "tool": "peakassign 0.1.0",
+  "solvent": "CDCl3",
+  "normalisation": {
+    "raw_integral_per_h": 16.4,
+    "source": "product"
+  },
+  "unknown_alert": false,
+  "unknown": [],
+  "product": {
+    "name": "2-acetylthiophene",
+    "smiles": "CC(=O)c1cccs1",
+    "status": "detected",
+    "molar_ratio": 1.0,
+    "integral_h": 5.963,
+    "integral_share": 0.9781,
+    "alert": false,
+    "matched": [
+      {
+        "label": "ArH (C7)",
+        "shift": 7.79,
+        "protons": 1,
+        "window": 0.28,
+        "labile": false
+      },
+      {
+        "label": "ArH (C5)",
+        "shift": 7.78,
+        "protons": 1,
+        "window": 0.38,
+        "labile": false
+      },
+      {
+        "label": "ArH (C6)",
+        "shift": 7.15,
+        "protons": 1,
+        "window": 0.28,
+        "labile": false
+      },
+      {
+        "label": "CH3 (C1)",
+        "shift": 2.51,
+        "protons": 3,
+        "window": 0.28,
+        "labile": false
+      }
+    ],
+    "missing": [],
+    "masked": []
+  },
+  "reactants": [
+    {
+      "name": "thiophene",
+      "smiles": "c1ccsc1",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "ArH (C1,2)",
+          "shift": 6.9,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        }
+      ],
+      "masked": [
+        {
+          "label": "ArH (C3,5)",
+          "shift": 7.1,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        }
+      ]
+    },
+    {
+      "name": "acetic anhydride",
+      "smiles": "CC(=O)OC(C)=O",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "CH3 (C1,6)",
+          "shift": 3.13,
+          "protons": 6,
+          "window": 0.28,
+          "labile": false
+        }
+      ],
+      "masked": []
+    }
+  ],
+  "declared_impurities": [
+    {
+      "name": "acetic acid",
+      "smiles": "",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "s, 3H",
+          "shift": 2.1,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "masked": []
+    },
+    {
+      "name": "ethyl acetate",
+      "smiles": "",
+      "status": "doubtful",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [
+        {
+          "label": "s, 3H",
+          "shift": 2.05,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "missing": [
+        {
+          "label": "q, 2H",
+          "shift": 4.12,
+          "protons": 2,
+          "window": 0.04,
+          "labile": false
+        },
+        {
+          "label": "t, 3H",
+          "shift": 1.26,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "masked": []
+    }
+  ],
+  "peaks": [
+    {
+      "ppm": 7.68,
+      "integral": 16.4,
+      "h": 1.0,
+      "multiplicity": "dd",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "2-acetylthiophene",
+          "role": "product",
+          "signals": [
+            "ArH (C7)"
+          ],
+          "predicted_ppm": [
+            7.79
+          ],
+          "predicted_h": 1,
+          "integral_h": 1.0,
+          "status": "ok",
+          "delta": 0.11,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.615,
+      "integral": 15.88,
+      "h": 0.968,
+      "multiplicity": "dd",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "2-acetylthiophene",
+          "role": "product",
+          "signals": [
+            "ArH (C5)"
+          ],
+          "predicted_ppm": [
+            7.78
+          ],
+          "predicted_h": 1,
+          "integral_h": 0.968,
+          "status": "ok",
+          "delta": 0.165,
+          "confidence": "Medium"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.105,
+      "integral": 16.08,
+      "h": 0.98,
+      "multiplicity": "dd",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "2-acetylthiophene",
+          "role": "product",
+          "signals": [
+            "ArH (C6)"
+          ],
+          "predicted_ppm": [
+            7.15
+          ],
+          "predicted_h": 1,
+          "integral_h": 0.98,
+          "status": "ok",
+          "delta": 0.045,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "thiophene ArH (C3,5) (predicted 7.10 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 2.54,
+      "integral": 49.44,
+      "h": 3.015,
+      "multiplicity": "s",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "2-acetylthiophene",
+          "role": "product",
+          "signals": [
+            "CH3 (C1)"
+          ],
+          "predicted_ppm": [
+            2.51
+          ],
+          "predicted_h": 3,
+          "integral_h": 3.015,
+          "status": "ok",
+          "delta": 0.03,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 2.06,
+      "integral": 2.19,
+      "h": 0.134,
+      "multiplicity": "s",
+      "category": "minor",
+      "unexplained_h": 0.134,
+      "assignments": [],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [
+        "inside the predicted window of ethyl acetate s, 3H, but its other signals (q, 2H at 4.12 ppm, t, 3H at 1.26 ppm) are absent, so it was not assigned to that species"
+      ],
+      "conflict": ""
+    }
+  ],
+  "warnings": []
+}

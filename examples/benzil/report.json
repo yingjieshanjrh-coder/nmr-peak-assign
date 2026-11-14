@@ -1,0 +1,367 @@
+{
+  "tool": "peakassign 0.1.0",
+  "solvent": "CDCl3",
+  "normalisation": {
+    "raw_integral_per_h": 8.644,
+    "source": "product"
+  },
+  "unknown_alert": false,
+  "unknown": [],
+  "product": {
+    "name": "benzil",
+    "smiles": "O=C(C(=O)c1ccccc1)c1ccccc1",
+    "status": "detected",
+    "molar_ratio": 1.0,
+    "integral_h": 10.0,
+    "integral_share": 0.8643,
+    "alert": false,
+    "matched": [
+      {
+        "label": "ArH (C6,10,12,16)",
+        "shift": 7.97,
+        "protons": 4,
+        "window": 0.2,
+        "labile": false
+      },
+      {
+        "label": "ArH (C7,9,13,15)",
+        "shift": 7.56,
+        "protons": 4,
+        "window": 0.2,
+        "labile": false
+      },
+      {
+        "label": "ArH (C8,14)",
+        "shift": 7.56,
+        "protons": 2,
+        "window": 0.2,
+        "labile": false
+      }
+    ],
+    "missing": [],
+    "masked": []
+  },
+  "reactants": [
+    {
+      "name": "benzoin",
+      "smiles": "OC(C(=O)c1ccccc1)c1ccccc1",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "CH (C2)",
+          "shift": 5.94,
+          "protons": 1,
+          "window": 0.2,
+          "labile": false
+        }
+      ],
+      "masked": [
+        {
+          "label": "ArH (C6,10)",
+          "shift": 7.9,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        },
+        {
+          "label": "ArH (C8)",
+          "shift": 7.56,
+          "protons": 1,
+          "window": 0.2,
+          "labile": false
+        },
+        {
+          "label": "ArH (C7,9)",
+          "shift": 7.38,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        },
+        {
+          "label": "ArH (C12,16)",
+          "shift": 7.33,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        },
+        {
+          "label": "ArH (C14)",
+          "shift": 7.3,
+          "protons": 1,
+          "window": 0.2,
+          "labile": false
+        },
+        {
+          "label": "ArH (C13,15)",
+          "shift": 7.29,
+          "protons": 2,
+          "window": 0.2,
+          "labile": false
+        }
+      ]
+    }
+  ],
+  "declared_impurities": [
+    {
+      "name": "acetone",
+      "smiles": "",
+      "status": "detected",
+      "molar_ratio": 0.10084066018818448,
+      "integral_h": 0.605,
+      "integral_share": 0.0523,
+      "alert": false,
+      "matched": [
+        {
+          "label": "s, 6H",
+          "shift": 2.17,
+          "protons": 6,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "missing": [],
+      "masked": []
+    },
+    {
+      "name": "ethanol",
+      "smiles": "",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "q, 2H",
+          "shift": 3.72,
+          "protons": 2,
+          "window": 0.04,
+          "labile": false
+        },
+        {
+          "label": "t, 3H",
+          "shift": 1.25,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "masked": []
+    },
+    {
+      "name": "acetic acid",
+      "smiles": "",
+      "status": "absent",
+      "molar_ratio": null,
+      "integral_h": 0,
+      "integral_share": 0.0,
+      "alert": false,
+      "matched": [],
+      "missing": [
+        {
+          "label": "s, 3H",
+          "shift": 2.1,
+          "protons": 3,
+          "window": 0.04,
+          "labile": false
+        }
+      ],
+      "masked": []
+    }
+  ],
+  "peaks": [
+    {
+      "ppm": 8.005,
+      "integral": 34.14,
+      "h": 3.95,
+      "multiplicity": "m",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "benzil",
+          "role": "product",
+          "signals": [
+            "ArH (C6,10,12,16)"
+          ],
+          "predicted_ppm": [
+            7.97
+          ],
+          "predicted_h": 4,
+          "integral_h": 3.95,
+          "status": "ok",
+          "delta": 0.035,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "benzoin ArH (C6,10) (predicted 7.90 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.69,
+      "integral": 17.3,
+      "h": 2.001,
+      "multiplicity": "m",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "benzil",
+          "role": "product",
+          "signals": [
+            "ArH (C8,14)"
+          ],
+          "predicted_ppm": [
+            7.56
+          ],
+          "predicted_h": 2,
+          "integral_h": 2.001,
+          "status": "ok",
+          "delta": 0.13,
+          "confidence": "Medium"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "benzoin ArH (C8) (predicted 7.56 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.54,
+      "integral": 35.0,
+      "h": 4.049,
+      "multiplicity": "m",
+      "category": "product",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "benzil",
+          "role": "product",
+          "signals": [
+            "ArH (C7,9,13,15)"
+          ],
+          "predicted_ppm": [
+            7.56
+          ],
+          "predicted_h": 4,
+          "integral_h": 4.049,
+          "status": "ok",
+          "delta": 0.02,
+          "confidence": "High"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "benzoin ArH (C8) (predicted 7.56 ppm)",
+        "benzoin ArH (C7,9) (predicted 7.38 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 7.28,
+      "integral": 2.65,
+      "h": 0.307,
+      "multiplicity": "s",
+      "category": "solvent",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "CHCl3 (residual CDCl3)",
+          "role": "solvent",
+          "signals": [
+            "residual"
+          ],
+          "predicted_ppm": [
+            7.26
+          ],
+          "predicted_h": null,
+          "integral_h": 0.307,
+          "status": "line",
+          "delta": 0.02,
+          "confidence": ""
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [
+        "benzoin ArH (C7,9) (predicted 7.38 ppm)",
+        "benzoin ArH (C12,16) (predicted 7.33 ppm)",
+        "benzoin ArH (C14) (predicted 7.30 ppm)",
+        "benzoin ArH (C13,15) (predicted 7.29 ppm)"
+      ],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 2.19,
+      "integral": 5.23,
+      "h": 0.605,
+      "multiplicity": "s",
+      "category": "solvent",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "acetone",
+          "role": "impurity",
+          "signals": [
+            "s, 6H"
+          ],
+          "predicted_ppm": [
+            2.17
+          ],
+          "predicted_h": 6,
+          "integral_h": 0.605,
+          "status": "ok",
+          "delta": 0.02,
+          "confidence": "Medium"
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    },
+    {
+      "ppm": 1.6,
+      "integral": 5.69,
+      "h": 0.658,
+      "multiplicity": "s",
+      "category": "solvent",
+      "unexplained_h": 0.0,
+      "assignments": [
+        {
+          "species": "H2O (water in CDCl3)",
+          "role": "solvent",
+          "signals": [
+            "water"
+          ],
+          "predicted_ppm": [
+            1.56
+          ],
+          "predicted_h": null,
+          "integral_h": 0.658,
+          "status": "line",
+          "delta": 0.04,
+          "confidence": ""
+        }
+      ],
+      "overlaps": [],
+      "also_in_window": [],
+      "hints": [],
+      "conflict": ""
+    }
+  ],
+  "warnings": []
+}

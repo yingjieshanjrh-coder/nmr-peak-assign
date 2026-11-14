@@ -1,0 +1,16 @@
+# Suzuki-Miyaura coupling: phenylboronic acid + 4-bromobenzonitrile -> 4-cyanobiphenyl.
+# Experimental spectrum (400.3 MHz, CDCl3) of the product after work-up
+# (ethyl acetate) and recrystallisation from ethanol.
+product:
+  smiles: N#Cc1ccc(cc1)-c1ccccc1
+  name: 4-cyanobiphenyl
+reactants:
+  - smiles: OB(O)c1ccccc1
+    name: phenylboronic acid
+  - smiles: N#Cc1ccc(Br)cc1
+    name: 4-bromobenzonitrile
+solvent: CDCl3
+extra_solvents:
+  - acetone
+  - ethanol
+  - ethyl acetate

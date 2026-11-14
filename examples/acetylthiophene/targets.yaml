@@ -1,0 +1,15 @@
+# Friedel-Crafts acylation: thiophene + acetic anhydride (zeolite beta) -> 2-acetylthiophene.
+# Experimental spectrum (400 MHz, CDCl3) of the product after aqueous work-up
+# (ethyl acetate) and vacuum distillation.
+product:
+  smiles: CC(=O)c1cccs1
+  name: 2-acetylthiophene
+reactants:
+  - smiles: c1ccsc1
+    name: thiophene
+  - smiles: CC(=O)OC(C)=O
+    name: acetic anhydride
+solvent: CDCl3
+extra_solvents:
+  - acetic acid
+  - ethyl acetate
